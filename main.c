@@ -11,6 +11,7 @@ int main()
     printf("mudanca_base = %d \n mudanca_base_recursiva = %d \n", n1, n2);
     float n3 = mudanca_base_fracionario_iterativo(0.9375, 10, 2);
     printf("mudanca_base_fracionario_iterativo = %f", n3);
+    mudanca_base_fracionario_recursivo()
     return 0;
 }
 
@@ -115,4 +116,22 @@ float mudanca_base_fracionario_iterativo(float n, int base_inicio, int base_dest
         k--;
     }
     return soma;
+}
+
+
+
+
+float mudanca_base_fracionario_recursivo(float n, int base_inicio, int base_destino, int k){
+
+    int d = n;
+    float n = n - d;
+    float expoente =pow(base_inicio, k);
+    float termo_soma = d* expoente;
+    k--;
+
+    if(N == 0){
+        return termo_soma;
+    }else{
+        return termo_soma + mudanca_base_fracionario_recursivo(n, base_inicio, base_destino, k);
+    }
 }
